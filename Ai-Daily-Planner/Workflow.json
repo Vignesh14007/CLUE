@@ -1,0 +1,204 @@
+{
+  "name": "AI Daily Productivity Planner",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7,
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -816,
+        0
+      ],
+      "id": "1b64bfe0-a1a9-4c93-abfb-e113b62ef374",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c98b56f9-9c95-41c8-a2fe-33db5d4dee8e",
+              "name": "Name",
+              "value": "Vicky",
+              "type": "string"
+            },
+            {
+              "id": "e99592a1-c736-4a05-b8da-c59588b42fa1",
+              "name": "Goal",
+              "value": "Get placed in a top product-based company",
+              "type": "string"
+            },
+            {
+              "id": "5d3e2a97-9b73-47ee-b8f6-b45b315ae604",
+              "name": "College",
+              "value": "Monday to Friday 9:00 AM to 4:00 PM",
+              "type": "string"
+            },
+            {
+              "id": "7dc50707-d8dc-402d-9189-4729e383879a",
+              "name": "Wakeup",
+              "value": "6:00 AM",
+              "type": "string"
+            },
+            {
+              "id": "aa6bedf0-02a1-4bbe-a2fe-e746662673ad",
+              "name": "Sleep",
+              "value": "11:30 PM",
+              "type": "string"
+            },
+            {
+              "id": "525f11d7-c550-41c5-8315-9c07e5db0c11",
+              "name": "Priorities",
+              "value": "Placement Preparation, Java DSA ,AI and Machine Learning ,Project Development, College Work ",
+              "type": "string"
+            },
+            {
+              "id": "5167ff00-6ea7-4b3d-ad21-6b60113bc50c",
+              "name": "AboutMe",
+              "value": "I am a third-year Information Technology student.  I want to get placed in a top product-based company.  I enjoy Artificial Intelligence and Machine Learning.  I am learning Java for DSA.  I am building MERN stack and AI projects.  I want to improve my LinkedIn and GitHub profile.  I prefer deep work instead of multitasking.  I exercise every day.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -608,
+        0
+      ],
+      "id": "01cf6353-74ce-4160-a04e-0a19ba27b30d",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are my personal AI productivity coach.\n\nYou help me plan one productive day.\n\nAbout Me\n\n{{$json.aboutMe}}\n\nGoal\n\n{{$json.goal}}\n\nCollege Timing\n\n{{$json.college}}\n\nWake Up\n\n{{$json.wakeup}}\n\nSleep\n\n{{$json.sleep}}\n\nPriorities\n\n{{$json.priorities}}\n\nYour task:\n\nCreate today's schedule.\n\nRules:\n\n- Give today's plan only.\n- Assume today is a normal weekday.\n- Placement preparation is the highest priority.\n- Include Java DSA.\n- Include AI/ML learning.\n- Include work on one personal project.\n- Include exercise.\n- Keep breaks between study sessions.\n- Don't overload the schedule.\n- Give estimated durations.\n- End with the Top 3 priorities.\n- Finish with one short motivational tip.\n\nFormat the response using Markdown.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -400,
+        0
+      ],
+      "id": "50581b67-8e72-46ab-9f2c-b40321ac64b2",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        -496,
+        192
+      ],
+      "id": "e30c6ad2-3b73-48db-8a76-409d206d08a3",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "jsJbzZtgFaQgWND8",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "vigneshwarans.1407@gmail.com",
+        "subject": "TO DO",
+        "emailType": "text",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        16,
+        176
+      ],
+      "id": "c11d3e4b-f539-4610-b28e-707431635189",
+      "name": "Send a message",
+      "webhookId": "006b49cc-6d4d-4d43-a3b2-b512471a8cdd",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "osCKRTExuFd3bMIl",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "22c0617c-f027-4437-ad8c-a9104a183f6c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "248bea51aa5293bb029b8c1caade8f011baf714529c556f37b999ea7bd024633"
+  },
+  "nodeGroups": [],
+  "id": "NAyrtAfQvbT4wrLc",
+  "tags": []
+}

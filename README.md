@@ -15,8 +15,8 @@ with n8n, Google Gemini, and Gmail.</b>
 <img src="https://img.shields.io/badge/Docker-Local%20Deployment-2496ED?style=for-the-badge&logo=docker&logoColor=white">
 
 </p>
-```
-## 📌 Overview
+
+📌 Overview
 
 **AI Daily Productivity Planner** is an automated personal productivity
 system built with **n8n**, **Google Gemini**, and **Gmail**.

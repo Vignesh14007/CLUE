@@ -550,26 +550,16 @@ Kongu Engineering College, Tamil Nadu, India
 -   GitHub: https://github.com/Vignesh14007
 -   LinkedIn: https://linkedin.com/in/vigneshwaran14007/
 
-## 📄 License
-
-This project is intended as a learning and portfolio project.
-
-If you add a license file, update this section to match the selected
-license.
-
 ------------------------------------------------------------------------
 
-```{=html}
 <p align="center">
-```
-`<b>`{=html}Built with ❤️ using n8n + Google Gemini + Gmail`</b>`{=html}
-```{=html}
+
+<b>Built with ❤️ using n8n + Google Gemini + Gmail</b>
+
 </p>
-```
-```{=html}
+
 <p align="center">
-```
+
 ⭐ Star the repository if you find it useful.
-```{=html}
+
 </p>
-```

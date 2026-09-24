@@ -1,21 +1,19 @@
 # 🤖 AI Daily Productivity Planner
 
-```{=html}
 <p align="center">
-```
-`<b>`{=html}An AI-powered daily planning and reminder workflow built
-with n8n, Google Gemini, and Gmail.`</b>`{=html}
-```{=html}
+
+<b>{=html}An AI-powered daily planning and reminder workflow built
+with n8n, Google Gemini, and Gmail.</b>{=html}
+
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<img src="https://img.shields.io/badge/n8n-Automation-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white">`{=html}
-`<img src="https://img.shields.io/badge/Google%20Gemini-LLM-4285F4?style=for-the-badge&logo=google&logoColor=white">`{=html}
-`<img src="https://img.shields.io/badge/Gmail-Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white">`{=html}
-`<img src="https://img.shields.io/badge/Docker-Local%20Deployment-2496ED?style=for-the-badge&logo=docker&logoColor=white">`{=html}
-```{=html}
+
+<img src="https://img.shields.io/badge/n8n-Automation-FF6D5A?style=for-the-badge&logo=n8n&logoColor=white">{=html}
+<img src="https://img.shields.io/badge/Google%20Gemini-LLM-4285F4?style=for-the-badge&logo=google&logoColor=white">{=html}
+<img src="https://img.shields.io/badge/Gmail-Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white">{=html}
+<img src="https://img.shields.io/badge/Docker-Local%20Deployment-2496ED?style=for-the-badge&logo=docker&logoColor=white">{=html}
+
 </p>
 ```
 ## 📌 Overview
